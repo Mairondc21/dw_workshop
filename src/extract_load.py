@@ -22,7 +22,7 @@ engine = create_engine(DATABASE_URL)
 
 
 def buscar_dados_commodities (simbolo, periodo='5d', intervalo='1d'):
-    ticker = yf.Ticker('CL=F')
+    ticker = yf.Ticker(simbolo)
     dados = ticker.history(period=periodo, interval=intervalo)[['Close']]
     dados['simbolo'] = simbolo
     return dados
